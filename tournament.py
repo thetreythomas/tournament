@@ -15,7 +15,7 @@ def deleteMatches():
     """Remove all the match records from the database."""
     conn = psycopg2.connect("dbname=tournament")
     cur = conn.cursor()
-    cur.execute("DELETE FROM matches;")
+    cur.execute("TRUNCATE matches CASCADE;")
     conn.commit()
     conn.close()
 
@@ -24,7 +24,7 @@ def deletePlayers():
     """Remove all the player records from the database."""
     conn = psycopg2.connect("dbname=tournament")
     cur = conn.cursor()
-    cur.execute("DELETE FROM players;")
+    cur.execute("TRUNCATE players CASCADE;")
     conn.commit()
     conn.close()
 
